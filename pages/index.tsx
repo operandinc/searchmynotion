@@ -33,32 +33,30 @@ const Index: NextPage = () => {
             <article className="prose lg:prose-xl">
               <h3 className="text-center pb-10">
                 Click the button above to experience the magic of semantic
-                search with your very own Notion content.
+                search inside your very own Notion workspace.
               </h3>
-              <h2>How does it work?</h2>
+              <h2>How it works:</h2>
               <ol>
                 <li>
-                  Click the button above to authorize access to a Notion
-                  workspace.
+                  When you click the button, you'll be redirected to Notion to
+                  login.
                 </li>
                 <li>
-                  Choose the appropriate pages you would like to be able to
+                  You can then choose which pages of your Notion you want to
                   search over.
                 </li>
                 <li>
-                  Once you finish choosing pages, we will begin indexing your
-                  content. This may take some time.
-                </li>
-                <li>
-                  When everything is done we will send you an email with your
-                  unique link!
+                  Once we've finished indexing your Notion workspace, we'll send
+                  you an email with a unique link to search! Depending on how
+                  busy we are, this may take anywhere from a few minutes to a
+                  few hours.
                 </li>
               </ol>
-              <h2>What do you get when you press the button?</h2>
+              <h2>Features:</h2>
               <ul>
-                <li>A unique link where you can search your Notion.</li>
-                <li>Intuitive and unlimited semantic search.</li>
-                <li>New Notion content indexed every day.</li>
+                <li>Search over all the content in your Notion workspace.</li>
+                <li>Powerful, AI-powered semantic search.</li>
+                <li>New content will be fetched and indexed periodically.</li>
               </ul>
               <h2>What do we get out of this product?</h2>
               <ul>
@@ -80,20 +78,43 @@ const Index: NextPage = () => {
               </ul>
               <h2>How was this made?</h2>
               <p>
-                {" "}
-                searchmynotion.com works by indexing your Notion content and
-                then searching it with the{" "}
-                <a href="https://operand.ai">Operand</a> API. This specific
-                product was built using our{" "}
-                <a href="https://operand.ai/auth">serverless</a> product and our{" "}
+                This website is a thin wrapper atop the{" "}
+                <a href="https://operand.ai">Operand</a> API. Specifically, we
+                used the{" "}
                 <a href="https://github.com/operandinc/typescript-sdk">
-                  Typescript SDK
+                  TypeScript SDK
                 </a>{" "}
-                and we have open sourced this product on GitHub. You can also
-                read our blog post on how this was created here.
+                and have open sourced all of this code on{" "}
+                <a href="https://github.com/operandinc/searchmynotion">
+                  GitHub
+                </a>
+                . In the near future, we're also going to release a blog post
+                detailing the process of building the site, and where we want to
+                take it in the future.
               </p>
-              <h2>Who made this?</h2>
               <p>
+                Operand's <a href="https://operand.ai/terms">terms</a> and{" "}
+                <a href="https://operand.ai/privacy">privacy policy</a> apply.
+              </p>
+              <h2>Why did we make this?</h2>
+              <ul>
+                <li>We love Notion! We use it every day.</li>
+                <li>To showcase our API and provide an example of usage.</li>
+                <li>
+                  And yes, to start conversations with{" "}
+                  <a href="https://notion.so">Notion</a> itself and similar
+                  companies.
+                </li>
+              </ul>
+              <h2>Our promises:</h2>
+              <ul>
+                <li>Your data is yours, and it always will be.</li>
+                <li>
+                  You can <a href="mailto:support@operand.ai">email us</a> at
+                  any time, and we'll delete your data off our servers.
+                </li>
+                <li>Your email inbox won't be spammed.</li>
+              </ul>
                 {" "}
                 searchmynotion.com was made by{" "}
                 <a href="https://operand.ai">Operand</a>. You can learn more
@@ -105,13 +126,12 @@ const Index: NextPage = () => {
               </p>
               <h2>I need help!</h2>
               <p>
-                {" "}
-                For help or any other questions you can reach us at{" "}
-                <a href="mailto:support@operand.ai">support@operand.ai</a> or
-                you can join our{" "}
+                Same. Ok, for real, you can{" "}
+                <a href="mailto:support@operand.ai">email us</a> or{" "}
                 <a href="https://discord.com/invite/WpaFpt5C9M">
-                  discord server
+                  join our community Discord
                 </a>
+                . We'll try our best to respond as quickly as possible!
               </p>
             </article>
           </div>
