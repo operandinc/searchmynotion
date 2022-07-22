@@ -13,7 +13,7 @@ const Index: NextPage = () => {
           <div className="max-w-3xl mx-auto py-20">
             {/* Big button */}
             <div className="flex justify-between items-center pb-20">
-              <div className="flex-shrink-0 text-3xl sm:text-6xl animate-bounce-right">
+              <div className="flex-shrink-0 text-3xl sm:text-6xl animate-bounce-left">
                 👉
               </div>
               <button
@@ -22,11 +22,11 @@ const Index: NextPage = () => {
                   trackGoal("95KFL7NF", 1);
                   window.location.href = setupUrl;
                 }}
-                className="inline-flex items-center px-5 sm:px-10 py-3 sm:py-6 border border-gray-700 shadow-lg text-3xl sm:text-5xl font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+                className="inline-flex items-center px-5 sm:px-10 py-3 sm:py-6 border border-gray-700 shadow-xl rounded text-2xl sm:text-3xl sm:text-5xl font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
               >
                 Search my Notion!
               </button>
-              <div className="flex-shrink-0 text-3xl sm:text-6xl animate-bounce-left">
+              <div className="flex-shrink-0 text-3xl sm:text-6xl animate-bounce-right">
                 👈
               </div>
             </div>
@@ -60,7 +60,24 @@ const Index: NextPage = () => {
                 <li>Intuitive and unlimited semantic search.</li>
                 <li>New Notion content indexed every day.</li>
               </ul>
-
+              <h2>What do we get out of this product?</h2>
+              <ul>
+                <li>
+                  We love Notion! and if we can make using Notion a better
+                  experience for you that's great!
+                </li>
+                <li>
+                  To show you what you can build with{" "}
+                  <a href="https://operand.ai">Operand</a>.
+                </li>
+                <li> Get people to check out our serverless product.</li>
+              </ul>
+              <h2>What don't we get?</h2>
+              <ul>
+                <li> To share your data. It's your and always will be.</li>
+                <li>To edit your Notion.</li>
+                <li>To spam you with emails.</li>
+              </ul>
               <h2>How was this made?</h2>
               <p>
                 {" "}
@@ -82,25 +99,10 @@ const Index: NextPage = () => {
                 <a href="https://operand.ai">Operand</a>. You can learn more
                 about us and what we do at{" "}
                 <a href="https://operand.ai/about">operand.ai</a>. Operand's{" "}
-                <a href="https://operand.ai/terms">terms</a>
-                and <a href="https://operand.ai/privacy">privacy policy</a>{" "}
-                apply to searchmynotion.com.
+                <a href="https://operand.ai/terms">terms</a> and{" "}
+                <a href="https://operand.ai/privacy">privacy policy</a> apply to
+                searchmynotion.com.
               </p>
-              <h2>What do we get out of this product?</h2>
-              <ul>
-                <li>
-                  We love Notion! and if we can make using Notion a better
-                  experience for you that's great!
-                </li>
-                <li>To show you what you can build with Operand.</li>
-                <li> Get people to check out our serverless product.</li>
-              </ul>
-              <h2>What don't we get?</h2>
-              <ul>
-                <li> To share your data. It's your and always will be.</li>
-                <li>To edit your Notion.</li>
-                <li>To spam you with emails.</li>
-              </ul>
               <h2>I need help!</h2>
               <p>
                 {" "}
