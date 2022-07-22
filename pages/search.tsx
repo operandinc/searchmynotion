@@ -9,10 +9,8 @@ import {
   Object,
   NotionPageObjectMetadata,
 } from "@operandinc/sdk";
-import Search from "../components/search";
 import Layout from "../components/layout";
 import { SearchIcon } from "../components/icons";
-import { SkeletonRow } from "../components/loading";
 import Link from "next/link";
 
 type workspace = {

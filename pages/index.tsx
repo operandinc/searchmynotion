@@ -58,24 +58,6 @@ const Index: NextPage = () => {
                 <li>Powerful, AI-powered semantic search.</li>
                 <li>New content will be fetched and indexed periodically.</li>
               </ul>
-              <h2>What do we get out of this product?</h2>
-              <ul>
-                <li>
-                  We love Notion! and if we can make using Notion a better
-                  experience for you that's great!
-                </li>
-                <li>
-                  To show you what you can build with{" "}
-                  <a href="https://operand.ai">Operand</a>.
-                </li>
-                <li> Get people to check out our serverless product.</li>
-              </ul>
-              <h2>What don't we get?</h2>
-              <ul>
-                <li> To share your data. It's your and always will be.</li>
-                <li>To edit your Notion.</li>
-                <li>To spam you with emails.</li>
-              </ul>
               <h2>How was this made?</h2>
               <p>
                 This website is a thin wrapper atop the{" "}
@@ -91,10 +73,6 @@ const Index: NextPage = () => {
                 . In the near future, we're also going to release a blog post
                 detailing the process of building the site, and where we want to
                 take it in the future.
-              </p>
-              <p>
-                Operand's <a href="https://operand.ai/terms">terms</a> and{" "}
-                <a href="https://operand.ai/privacy">privacy policy</a> apply.
               </p>
               <h2>Why did we make this?</h2>
               <ul>
@@ -116,14 +94,8 @@ const Index: NextPage = () => {
                 <li>Your email inbox won't be spammed.</li>
               </ul>
               <p>
-                {" "}
-                searchmynotion.com was made by{" "}
-                <a href="https://operand.ai">Operand</a>. You can learn more
-                about us and what we do at{" "}
-                <a href="https://operand.ai/about">operand.ai</a>. Operand's{" "}
-                <a href="https://operand.ai/terms">terms</a> and{" "}
-                <a href="https://operand.ai/privacy">privacy policy</a> apply to
-                searchmynotion.com.
+                Operand's <a href="https://operand.ai/terms">terms</a> and{" "}
+                <a href="https://operand.ai/privacy">privacy policy</a> apply.
               </p>
               <h2>I need help!</h2>
               <p>

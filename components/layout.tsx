@@ -55,7 +55,21 @@ const Layout: React.FC<React.PropsWithChildren> = (props) => {
   return (
     <>
       <Head>
-        <title>Search My Notion</title>
+        <title>Search My Notion | AI powered Semantic Search for Notion</title>
+        <meta
+          name="description"
+          content="Search your Notion Workspace with semantic search powered by Operand. Get started for free!"
+          key="desc"
+        />
+        <meta property="og:title" content="Search My Notion" />
+        <meta
+          property="og:description"
+          content="Search your Notion with AI-powered semantic search!"
+        />
+        <meta
+          property="og:image"
+          content="https://searchmynotion.com/public/og-image.png"
+        />
       </Head>
       <nav className="w-full px-10 py-6">
         <div className="flex justify-between items-center">
