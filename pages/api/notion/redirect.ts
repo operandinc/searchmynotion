@@ -111,8 +111,9 @@ export default async function handler(
       parentId: searchMyNotionRootId,
       properties: {
         workspace_id: json.workspace_id,
+        workspace_name: json.workspace_name || undefined,
       },
-      label: json.workspace_name || json.workspace_id,
+      label: json.owner.user.person.email,
     });
 
     // Create a link for the user

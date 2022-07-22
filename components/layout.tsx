@@ -1,6 +1,8 @@
 import Head from "next/head";
 import * as React from "react";
 import Link from "next/link";
+import logo from "../public/android-chrome-192x192.png";
+import Image from "next/image";
 
 const socials = [
   {
@@ -59,7 +61,17 @@ const Layout: React.FC<React.PropsWithChildren> = (props) => {
         <div className="flex justify-between items-center">
           <div className="flex-1 text-2xl font-medium">
             <Link href="/" passHref>
-              <a>Search my Notion</a>
+              <a>
+                <div className="flex items-center space-x-4">
+                  <Image
+                    src={logo}
+                    width="50"
+                    height="50"
+                    alt="Search My Notion"
+                  />
+                  <h1>Search my Notion</h1>
+                </div>
+              </a>
             </Link>
           </div>
           <div className="flex justify-end flex-1 space-x-4">
