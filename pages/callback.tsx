@@ -11,11 +11,25 @@ const Callback: NextPage = () => {
             <article className="prose  sm:prose-xl">
               <h2>👍 Success!</h2>
               <p>
-                We will send you an email when we are finished indexing your
-                workspace. In the meantime you can checkout our{" "}
-                <a href="https://github.com/operandinc">GitHub</a> to learn more
-                about Operand.
+                We'll send you an email when we're finished indexing your
+                workspace. In the meantime, here's a few fun things you can do:
               </p>
+              <ul>
+                <li>
+                  Check out our <a href="https://operand.ai">website</a>.
+                </li>
+                <li>
+                  Follow us on{" "}
+                  <a href="https://twitter.com/operandai">Twitter</a>.
+                </li>
+                <li>
+                  Learn about how{" "}
+                  <a href="https://a-z-animals.com/blog/how-do-whales-mate-and-reproduce/">
+                    whales reproduce
+                  </a>
+                  .
+                </li>
+              </ul>
             </article>
           </div>
         </div>
