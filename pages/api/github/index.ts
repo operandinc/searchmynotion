@@ -91,7 +91,7 @@ export default async function handler(
     }
     // Send email
     await client.sendEmail({
-      From: "searchmynotion@operand.ai",
+      From: "team@searchmynotion.com",
       To: user.email,
       Subject: "Your searchmynotion link is ready!",
       TextBody: `Your searchmynotion link is ready!\n\n${process.env.NEXT_PUBLIC_FRONTEND_URL}/search?link=${link.id}`,
@@ -110,7 +110,7 @@ export default async function handler(
     }
     // Send email
     await client.sendEmail({
-      From: "searchmynotion@operand.ai",
+      From: "team@searchmynotion.com",
       To: user.email,
       Subject: "Your searchmynotion indexing failed!",
       TextBody: `Sorry but we were unable to index your Notion. Apologies for the inconvenience and we are working on a fix.`,

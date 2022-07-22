@@ -69,7 +69,7 @@ const SearchInterface: NextPage = () => {
       }
     }
     search();
-  }, [query]);
+  }, [query, link]);
 
   function renderSearchResults(results: SearchVariantContentsResponse) {
     if (!results) {
@@ -110,13 +110,18 @@ const SearchInterface: NextPage = () => {
             >
               <div className="prose">
                 <h2 className="text-2xl font-bold">{meta.title}</h2>
-                <div className="divide-y divide-solid">
+                <div className="divide-y divide-solid ">
                   {snippets.map((snippet, idx) => {
                     return (
-                      <p key={idx} className="hover:bg-gray-100">
-                        {" "}
-                        {snippet.content}{" "}
-                      </p>
+                      <div
+                        key={idx}
+                        className="flex items-center sm:hover:bg-gray-100"
+                      >
+                        <p className="line-clamp-2 sm:line-clamp-3 my-2">
+                          {" "}
+                          {snippet.content}{" "}
+                        </p>
+                      </div>
                     );
                   })}
                 </div>
@@ -130,13 +135,13 @@ const SearchInterface: NextPage = () => {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto pt-6 lg:pt-10 sm:px-6 lg:px-8">
-        <div className="border-b border-gray-200 pb-3 sm:flex sm:items-center sm:justify-between">
+      <div className="max-w-7xl mx-auto pt-6 lg:pt-10 px-3 sm:px-6 lg:px-8">
+        <div className=" pb-3 sm:flex sm:items-center sm:justify-between">
           <div className="flex-grow">
-            <h3 className="text-3xl pl-4 pb-10 font-medium text-gray-900">
+            <h3 className="text-3xl pl-4 pb-6 font-medium text-gray-900">
               Workspace: {workspace?.name}
             </h3>
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-4 border border-black p-3 items-center">
               <input
                 type="text"
                 onChange={(e) => {
@@ -162,7 +167,9 @@ const SearchInterface: NextPage = () => {
             </Link>
           </div>
         </div>
-        <div>{searchResults ? renderSearchResults(searchResults) : null}</div>
+        <div className="py-8">
+          {searchResults ? renderSearchResults(searchResults) : null}
+        </div>
       </div>
     </Layout>
   );

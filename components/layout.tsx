@@ -69,7 +69,7 @@ const Layout: React.FC<React.PropsWithChildren> = (props) => {
                     height="50"
                     alt="Search My Notion"
                   />
-                  <h1>Search my Notion</h1>
+                  <h1 className="text-lg sm:text-xl">Search my Notion</h1>
                 </div>
               </a>
             </Link>
