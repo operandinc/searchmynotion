@@ -115,6 +115,7 @@ const Index: NextPage = () => {
                 </li>
                 <li>Your email inbox won't be spammed.</li>
               </ul>
+              <p>
                 {" "}
                 searchmynotion.com was made by{" "}
                 <a href="https://operand.ai">Operand</a>. You can learn more
