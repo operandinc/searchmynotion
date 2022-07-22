@@ -12,7 +12,8 @@ const Callback: NextPage = () => {
               <h2>👍 Success!</h2>
               <p>
                 We'll send you an email when we're finished indexing your
-                workspace. In the meantime, here's a few fun things you can do:
+                workspace. This can take anywhere from a few minutes to an hour
+                or so. In the meantime, here's a few fun things you can do:
               </p>
               <ul>
                 <li>
