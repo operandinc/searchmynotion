@@ -68,7 +68,7 @@ const Layout: React.FC<React.PropsWithChildren> = (props) => {
         />
         <meta
           property="og:image"
-          content="https://searchmynotion.com/public/og-image.png"
+          content="https://searchmynotion.com/og-image.png"
         />
       </Head>
       <nav className="w-full px-10 py-6">
