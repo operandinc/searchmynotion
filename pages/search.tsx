@@ -48,25 +48,36 @@ const SearchInterface: NextPage = () => {
   }, [link]);
 
   React.useEffect(() => {
-    async function search() {
-      if (query == "") {
-        setSearchResults(null);
-        setLoading(false);
-        return;
-      }
-      const firedQuery = query;
-      setLoading(true);
-      // Fire search request to /api/search
-      const resp = await fetch(`/api/operand?query=${query}&link=${link}`);
-      if (resp.status === 200) {
-        const searchResults =
-          (await resp.json()) as SearchVariantContentsResponse;
-        if (firedQuery === query) {
-          setSearchResults(searchResults);
-        }
-      }
+    // Debounce search to make it look less janky
+    if (query.length == 0) {
+      setSearchResults(null);
+      setLoading(false);
+      return;
     }
-    search();
+    // If we are already searching for this query, don't do it again
+    if (loading) {
+      return;
+    }
+    const firedQuery = query;
+    setLoading(true);
+    // Fire search request to /api/search
+    fetch(`/api/operand?query=${query}&link=${link}`)
+      .then((res) => {
+        if (res.status === 200) {
+          if (firedQuery === query) {
+            res.json().then((result) => {
+              setSearchResults(result);
+              setLoading(false);
+            });
+          }
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [query, link]);
 
   function renderSearchResults(results: SearchVariantContentsResponse) {
@@ -143,7 +154,6 @@ const SearchInterface: NextPage = () => {
               <input
                 type="text"
                 onChange={(e) => {
-                  e.preventDefault();
                   setQuery(e.target.value);
                 }}
                 className="border-hidden flex-grow pl-4 focus:outline-none focus:ring-0"
