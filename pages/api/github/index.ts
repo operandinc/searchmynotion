@@ -32,11 +32,8 @@ export default async function handler(
   });
 
   // Then for each object check Operand to see if the status has changed
-  // Ready link array
   const ready: Link[] = [];
-  // Error link array
   const error: Link[] = [];
-  // For each link
   for (const link of links) {
     // Get the object from Operand
     const object = await operand.getObject({
@@ -78,9 +75,8 @@ export default async function handler(
   // Create postmark client
   const client = new ServerClient(serverToken);
 
-  // Now lets email the user if their link is ready
+  // Now let's email the user if their link is ready
   for (const link of ready) {
-    // Get the user
     const user = await prisma.user.findUnique({
       where: {
         id: link.userId,
