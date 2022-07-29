@@ -42,7 +42,8 @@ export default async function handler(
     return;
   }
 
-  // Perform a filtered search
+  // Perform a filtered object search with Operand.
+  // We use the link's operandObjectId to filter our searches to their specific notion object.
   const results = await operand.searchObjects({
     query: query as string,
     parentIds: [obj.operandObjectId],

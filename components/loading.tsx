@@ -1,72 +1,5 @@
 import * as React from "react";
 
-interface SkeletonRowProps {
-  width: string;
-  height: string;
-}
-
-const SkeletonRow: React.FC<SkeletonRowProps> = (props) => {
-  const { width, height } = props;
-  return (
-    <div className={`w-${width} h-${height} bg-gray-200 animate-pulse`}></div>
-  );
-};
-
-export interface SkeletonTableProps {
-  rows: number;
-  rowHeight: string;
-  className?: string;
-}
-
-const SkeletonTable: React.FC<SkeletonTableProps> = (props) => {
-  const { rows, rowHeight, className } = props;
-  const skeletonRows = Array.from(Array(rows)).map((_, i) => {
-    return <SkeletonRow key={i} width="full" height={rowHeight} />;
-  });
-
-  return (
-    <div className={className || `space-y-6 pt-4 w-full`}>{skeletonRows}</div>
-  );
-};
-
-export interface SkeletonSearchProps {
-  rows: number;
-  headerHeight: string;
-  contentHeight: string;
-  className?: string;
-}
-
-const SkeletonSearch: React.FC<SkeletonSearchProps> = (props) => {
-  const { rows, headerHeight, contentHeight, className } = props;
-  // Make array of SkeletonRow components
-  const skeletonRows = Array.from(Array(rows)).map((_, i) => {
-    return (
-      <div key={i} className="space-y-4 pt-4 w-full">
-        <SkeletonRow width="1/5" height={headerHeight} />
-        <SkeletonRow width="full" height={contentHeight} />
-      </div>
-    );
-  });
-
-  return <div className={className || `space-y-6 w-full`}>{skeletonRows}</div>;
-};
-
-export interface SkeletonAnswerProps {
-  answerHeight: string;
-  feedbackHeight: string;
-  className?: string;
-}
-
-const SkeletonAnswer: React.FC<SkeletonAnswerProps> = (props) => {
-  const { answerHeight, feedbackHeight, className } = props;
-  return (
-    <div className={className || `space-y-6 w-full`}>
-      <SkeletonRow width="full" height={answerHeight} />
-      <SkeletonRow width="full" height={feedbackHeight} />
-    </div>
-  );
-};
-
 export interface LoadingSpinnerProps {
   className?: string;
 }
@@ -95,10 +28,4 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = (props) => {
   );
 };
 
-export {
-  SkeletonTable,
-  SkeletonRow,
-  SkeletonSearch,
-  SkeletonAnswer,
-  LoadingSpinner,
-};
+export { LoadingSpinner };

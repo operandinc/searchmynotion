@@ -47,8 +47,6 @@ const SearchInterface: NextPage = () => {
   const search = async () => {
     const response = await fetch(`/api/operand?query=${query}&link=${link}`);
     const json = await response.json();
-    // Sleep
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
     setSearchResults(json.results);
     setLoading(false);
   };
@@ -58,7 +56,6 @@ const SearchInterface: NextPage = () => {
       return null;
     }
     return (
-      // Grid of cards max
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {results.results.map((r) => {
           const meta = r.object.metadata as NotionPageObjectMetadata;
@@ -101,7 +98,6 @@ const SearchInterface: NextPage = () => {
                   if (e.key === "Enter") {
                     setLoading(true);
                     setSearchResults(null);
-                    // Call the search function
                     search();
                   }
                 }}
@@ -115,7 +111,6 @@ const SearchInterface: NextPage = () => {
                 onClick={() => {
                   setLoading(true);
                   setSearchResults(null);
-                  // Call the search function
                   search();
                 }}
                 className="hidden sm:block hover:bg-gray-100 text-gray-800 font-bold border border-black p-4 shadow-lg rounded"
