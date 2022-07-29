@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Click the button above to experience the magic of semantic search inside your very own Notion workspace.
 
-## Getting Started
+## How it works:
 
-First, run the development server:
+1.  When you click the button, you'll be redirected to Notion to login.
+2.  You can then choose which pages of your Notion you want to search over.
+3.  Once we've finished indexing your Notion workspace, we'll send you an email with a unique link to search! Depending on how busy we are, this may take anywhere from a few minutes to a few hours.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Features:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Search over all the content in your Notion workspace.
+- Powerful, AI-powered semantic search.
+- New content will be fetched and indexed periodically.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## How was this made?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This website is a thin wrapper atop the{" "} [Operand](https://operand.ai) API. Specifically, we used the{" "} [TypeScript SDK](https://github.com/operandinc/typescript-sdk) {" "} and have open sourced all of this code on{" "} [GitHub](https://github.com/operandinc/searchmynotion) . In the near future, we're also going to release a blog post detailing the process of building the site, and where we want to take it in the future.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Why did we make this?
 
-## Learn More
+- We love Notion! We use it every day.
+- To showcase our API and provide an example of usage.
+- And yes, to start conversations with{" "} [Notion](https://notion.so) itself and similar companies.
 
-To learn more about Next.js, take a look at the following resources:
+## Our promises:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Your data is yours, and it always will be.
+- You can [email us](mailto:support@operand.ai) at any time, and we'll delete your data off our servers.
+- Your email inbox won't be spammed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Operand's [terms](https://operand.ai/terms) and{" "} [privacy policy](https://operand.ai/privacy) apply.
 
-## Deploy on Vercel
+## FAQ
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **What exactly do you index?**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  Currently we index text, images, and lists. No tables or other fancy Notion blocks yet, but please let us know if those would be useful for you!
+
+- **I lost my link :(**
+
+  If you haven't deleted your emails its probably in there, but we can also go find it for you so just reach out on discord or email.
+
+- **I need more help!**
+
+  Same. Ok, for real, you can{" "} [email us](mailto:support@operand.ai) or{" "} [join our community Discord](https://discord.com/invite/WpaFpt5C9M) . We'll try our best to respond as quickly as possible!
