@@ -1,15 +1,17 @@
 import prisma from "../../lib/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  Object,
-  OperandV3,
-  SearchVariantContentsResponse,
-} from "@operandinc/sdk";
+import { SearchVariantObjectsResponse } from "@operandinc/sdk";
 import { operand } from "../../lib/operand";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<
+    | {
+        query: string;
+        results: SearchVariantObjectsResponse;
+      }
+    | { error: string }
+  >
 ) {
   const { query, link } = req.query;
 
@@ -41,10 +43,10 @@ export default async function handler(
   }
 
   // Perform a filtered search
-  const results = await operand.searchContents({
+  const results = await operand.searchObjects({
     query: query as string,
     parentIds: [obj.operandObjectId],
-    max: 10,
+    max: 3,
   });
 
   if (!results) {
@@ -54,5 +56,8 @@ export default async function handler(
     return;
   }
 
-  res.status(200).json(results);
+  res.status(200).json({
+    query: query as string,
+    results,
+  });
 }

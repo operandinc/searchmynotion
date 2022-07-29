@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@operandinc/sdk": "^3.0.27",
+    "@operandinc/sdk": "^3.0.29",
     "@prisma/client": "4.1.0",
     "@types/base-64": "^1.0.0",
     "base-64": "^1.0.0",

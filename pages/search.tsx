@@ -2,16 +2,13 @@ import * as React from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import {
-  OperandV3,
-  SearchVariantContentsRequest,
-  SearchVariantContentsResponse,
-  Snippet,
-  Object,
   NotionPageObjectMetadata,
+  SearchVariantObjectsResponse,
 } from "@operandinc/sdk";
 import Layout from "../components/layout";
 import { SearchIcon } from "../components/icons";
 import Link from "next/link";
+import { LoadingSpinner } from "../components/loading";
 
 type workspace = {
   name: string;
@@ -25,9 +22,9 @@ const SearchInterface: NextPage = () => {
   const { link } = router.query;
   const [query, setQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] =
-    React.useState<SearchVariantContentsResponse | null>(null);
-  const [loading, setLoading] = React.useState<boolean>(false);
+    React.useState<SearchVariantObjectsResponse | null>(null);
   const [workspace, setWorkspace] = React.useState<workspace | null>(null);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     if (link) {
@@ -47,92 +44,36 @@ const SearchInterface: NextPage = () => {
     }
   }, [link]);
 
-  React.useEffect(() => {
-    // Debounce search to make it look less janky
-    if (query.length == 0) {
-      setSearchResults(null);
-      setLoading(false);
-      return;
-    }
-    // If we are already searching for this query, don't do it again
-    if (loading) {
-      return;
-    }
-    const firedQuery = query;
-    setLoading(true);
-    // Fire search request to /api/search
-    fetch(`/api/operand?query=${query}&link=${link}`)
-      .then((res) => {
-        if (res.status === 200) {
-          if (firedQuery === query) {
-            res.json().then((result) => {
-              setSearchResults(result);
-              setLoading(false);
-            });
-          }
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [query, link]);
+  const search = async () => {
+    const response = await fetch(`/api/operand?query=${query}&link=${link}`);
+    const json = await response.json();
+    // Sleep
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    setSearchResults(json.results);
+    setLoading(false);
+  };
 
-  function renderSearchResults(results: SearchVariantContentsResponse) {
-    if (!results) {
+  function renderSearchResults(results: SearchVariantObjectsResponse) {
+    if (!results.results) {
       return null;
     }
-    // Create empty map of objectId to contents
-    const mappedResults = new Map<Object, Snippet[]>();
-    // Loop through all contents in the response and add them to the map
-    results.contents.forEach((snippet) => {
-      // Get object using objectId
-      const object = results.objects[snippet.objectId] as Object;
-      // Check if we are dealing with a top-3 object
-      // Since snippets are returned in order of relevance we can create objects until we have 3 and then stop
-      // And only add to existing objects
-      if (mappedResults.size < 3) {
-        // If the objectId is not in the map, add it and set the contents to the snippet
-        if (!mappedResults.has(object)) {
-          mappedResults.set(object, []);
-        }
-      }
-      if (mappedResults.has(object)) {
-        mappedResults.get(object)!.push(snippet);
-      }
-    });
-
     return (
       // Grid of cards max
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-        {Array.from(mappedResults).map(([object, snippets]) => {
-          const meta = object.metadata as NotionPageObjectMetadata;
+        {results.results.map((r) => {
+          const meta = r.object.metadata as NotionPageObjectMetadata;
           return (
             <div
               onClick={() => {
                 window.open(meta.url, "_blank");
               }}
-              key={object.id}
+              key={r.object.id}
               className="col-span-1 border p-3 border-gray rounded shadow flex hover:cursor-pointer"
             >
               <div className="prose">
                 <h2 className="text-2xl font-bold">{meta.title}</h2>
                 <div className="divide-y divide-solid ">
-                  {snippets.map((snippet, idx) => {
-                    return (
-                      <div
-                        key={idx}
-                        className="flex items-center sm:hover:bg-gray-100"
-                      >
-                        <p className="line-clamp-2 sm:line-clamp-3 my-2">
-                          {" "}
-                          {snippet.content}{" "}
-                        </p>
-                      </div>
-                    );
-                  })}
+                  <p className=" my-2"> {r.snippet} </p>
                 </div>
               </div>
             </div>
@@ -148,21 +89,42 @@ const SearchInterface: NextPage = () => {
         <div className=" pb-3 sm:flex sm:items-center sm:justify-between">
           <div className="flex-grow">
             <h3 className="text-3xl pl-4 pb-6 font-medium text-gray-900">
-              Workspace: {workspace?.name}
+              Workspace: {workspace?.name ? workspace.name : "Loading..."}
             </h3>
-            <div className="flex space-x-4 border border-black p-3 items-center">
+            <div className="flex space-x-4 items-center">
               <input
                 type="text"
                 onChange={(e) => {
                   setQuery(e.target.value);
                 }}
-                className="border-hidden flex-grow pl-4 focus:outline-none focus:ring-0"
+                onKeyUpCapture={(e) => {
+                  if (e.key === "Enter") {
+                    setLoading(true);
+                    setSearchResults(null);
+                    // Call the search function
+                    search();
+                  }
+                }}
+                className="flex-grow pl-4 focus:outline-none focus:ring-0 border border-black p-4 shadow-lg rounded"
                 placeholder="discover something new"
                 value={query}
                 autoFocus
                 enterKeyHint="search"
               ></input>
-              <SearchIcon className="w-6 h-6" />
+              <button
+                onClick={() => {
+                  setLoading(true);
+                  setSearchResults(null);
+                  // Call the search function
+                  search();
+                }}
+                className="hidden sm:block hover:bg-gray-100 text-gray-800 font-bold border border-black p-4 shadow-lg rounded"
+              >
+                <div className="flex items-center space-x-4">
+                  <p className="font-normal">Search</p>
+                  <SearchIcon />
+                </div>
+              </button>
             </div>
           </div>
         </div>
@@ -176,7 +138,15 @@ const SearchInterface: NextPage = () => {
           </div>
         </div>
         <div className="py-8">
-          {searchResults ? renderSearchResults(searchResults) : null}
+          {loading ? (
+            <div className="flex justify-center">
+              <LoadingSpinner />
+            </div>
+          ) : searchResults && !loading ? (
+            renderSearchResults(searchResults)
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </Layout>

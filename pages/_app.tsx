@@ -8,11 +8,7 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
-    // Initialize Fathom when the app loads
-    // Example: yourdomain.com
-    //  - Do not include https://
-    //  - This must be an exact match of your domain.
-    //  - If you're using www. for your domain, make sure you include that here.
+    // Initialize Fathom
     Fathom.load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID as string, {
       includedDomains: ["searchmynotion.com"],
       url: "https://fortunate-van.searchmynotion.com/script.js",

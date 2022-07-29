@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /search
+
+# Host
+Host: https://searchmynotion.com
+
+# Sitemaps
+Sitemap: https://searchmynotion.com/sitemap.xml

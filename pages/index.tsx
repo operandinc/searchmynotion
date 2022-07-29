@@ -97,15 +97,36 @@ const Index: NextPage = () => {
                 Operand's <a href="https://operand.ai/terms">terms</a> and{" "}
                 <a href="https://operand.ai/privacy">privacy policy</a> apply.
               </p>
-              <h2>I need help!</h2>
-              <p>
-                Same. Ok, for real, you can{" "}
-                <a href="mailto:support@operand.ai">email us</a> or{" "}
-                <a href="https://discord.com/invite/WpaFpt5C9M">
-                  join our community Discord
-                </a>
-                . We'll try our best to respond as quickly as possible!
-              </p>
+              <h2>FAQ</h2>
+              <ul>
+                <li>
+                  <strong>What exactly do you index?</strong>
+                  <p>
+                    Currently we index text, images, and lists. No tables or
+                    other fancy Notion blocks yet, but please let us know if
+                    those would be useful for you!
+                  </p>
+                </li>
+                <li>
+                  <strong>I lost my link :(</strong>
+                  <p>
+                    If you haven't deleted your emails its probably in there,
+                    but we can also go find it for you so just reach out on
+                    discord or email.
+                  </p>
+                </li>
+                <li>
+                  <strong>I need more help!</strong>
+                  <p>
+                    Same. Ok, for real, you can{" "}
+                    <a href="mailto:support@operand.ai">email us</a> or{" "}
+                    <a href="https://discord.com/invite/WpaFpt5C9M">
+                      join our community Discord
+                    </a>
+                    . We'll try our best to respond as quickly as possible!
+                  </p>
+                </li>
+              </ul>
             </article>
           </div>
         </div>
