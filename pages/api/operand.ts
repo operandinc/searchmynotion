@@ -5,13 +5,7 @@ import { operand } from "../../lib/operand";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<
-    | {
-        query: string;
-        results: SearchVariantObjectsResponse;
-      }
-    | { error: string }
-  >
+  res: NextApiResponse<SearchVariantObjectsResponse | { error: string }>
 ) {
   const { query, link } = req.query;
 
@@ -57,8 +51,5 @@ export default async function handler(
     return;
   }
 
-  res.status(200).json({
-    query: query as string,
-    results,
-  });
+  res.status(200).json(results);
 }

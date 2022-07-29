@@ -47,12 +47,12 @@ const SearchInterface: NextPage = () => {
   const search = async () => {
     const response = await fetch(`/api/operand?query=${query}&link=${link}`);
     const json = await response.json();
-    setSearchResults(json.results);
+    setSearchResults(json);
     setLoading(false);
   };
 
   function renderSearchResults(results: SearchVariantObjectsResponse) {
-    if (!results.results) {
+    if (!results || !results.results) {
       return null;
     }
     return (
