@@ -1,8 +1,6 @@
-### Click the button above to experience the magic of semantic search inside your very own Notion workspace.
-
 ## How it works:
 
-1.  When you click the button, you'll be redirected to Notion to login.
+1.  When you click the button on [searchmynotion.com](https://searchmynotion.com), you'll be redirected to Notion to login.
 2.  You can then choose which pages of your Notion you want to search over.
 3.  Once we've finished indexing your Notion workspace, we'll send you an email with a unique link to search! Depending on how busy we are, this may take anywhere from a few minutes to a few hours.
 
@@ -14,7 +12,7 @@
 
 ## How was this made?
 
-This website is a thin wrapper atop the{" "} [Operand](https://operand.ai) API. Specifically, we used the{" "} [TypeScript SDK](https://github.com/operandinc/typescript-sdk) {" "} and have open sourced all of this code on{" "} [GitHub](https://github.com/operandinc/searchmynotion) . In the near future, we're also going to release a blog post detailing the process of building the site, and where we want to take it in the future.
+This website is a thin wrapper atop the{" "} [Operand](https://operand.ai) API. Specifically, we used the{" "} [TypeScript SDK](https://github.com/operandinc/typescript-sdk) {" "} and have open sourced all of this code on{" "} [GitHub](https://github.com/operandinc/searchmynotion). In the near future, we're also going to release a blog post detailing the process of building the site, and where we want to take it in the future.
 
 ## Why did we make this?
 
